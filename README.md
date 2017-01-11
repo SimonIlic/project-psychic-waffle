@@ -12,6 +12,8 @@ The most basics features of the app will be:
 
  > *this is achieved by allowing users to share their digital calender with the app and using an algorithm to find shared free time slots*
 
+![grouplistActivity](/doc/grouplistActivity.png?raw=true "main activity") ![groupviewActivity](/doc/groupviewActivity.png?raw=true "group view activity") ![newgroupActivity](/doc/newgroupActivity.png?raw=true "new group activity") ![grouplistActivity](/doc/planFragment.png?raw=true "plan a meeting in a fragment")
+
 ### Extra features
 Apart from these basic features there is much room for expansion:
 * allowing for two diffrent ways to land on a meeting time, either by picking one of the suggested timeslots or by bringing the suggested timeslots up for a vote
