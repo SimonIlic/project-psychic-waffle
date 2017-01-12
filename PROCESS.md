@@ -18,3 +18,11 @@ This is a process book. It provides details of insights and steps taken during t
 
 # day 3
 * proposed the idea of an automatic meeting scheduler app
+* created design doc
+
+# day 4
+* started android studio project
+* integrated with firebase
+* created login activity
+* worked out database structure for groups
+ >> I decided on having 2 trees one for groups and one for users, each user will have a list of group ids and each group will have a list of user ids
