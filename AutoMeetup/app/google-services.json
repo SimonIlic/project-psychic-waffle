@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "184032960560",
+    "firebase_url": "https://automeetup.firebaseio.com",
+    "project_id": "automeetup",
+    "storage_bucket": "automeetup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184032960560:android:b6f2f165f831b5f9",
+        "android_client_info": {
+          "package_name": "mprog.nl.automeetup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184032960560-18q1m5ok85895ifl0igakmk3dg93mh81.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mprog.nl.automeetup",
+            "certificate_hash": "44956D9CAA704110CC3B839FB01708BC32DF4D01"
+          }
+        },
+        {
+          "client_id": "184032960560-79h89iettjukva1bba8dil3nfqa2jhb2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2vMmcGL8aQ9n4wN-2Ifh22ux8zVSbal0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184032960560-79h89iettjukva1bba8dil3nfqa2jhb2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
