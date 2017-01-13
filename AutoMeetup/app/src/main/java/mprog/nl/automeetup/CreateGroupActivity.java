@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class CreateGroupActivity extends AppCompatActivity {
+    private MeetingGroup group;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +26,9 @@ public class CreateGroupActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
-    addUserToGroup
-
+    public void onAddButtonClick(View view) {
+        
+    }
 }

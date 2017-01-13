@@ -24,8 +24,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 /** Sign in activity.
@@ -73,8 +76,10 @@ public class LoginActivity extends AppCompatActivity implements
                 if (user != null) {
                     // User is signed in
                     updateUI(true);
-                    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                    database.child("users").child(user.getUid()).once
+
+                    // enters user details into database if user is new
+                    addNewUserListener(user);
+
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
@@ -132,7 +137,30 @@ public class LoginActivity extends AppCompatActivity implements
                 signIn();
                 break;
         }
+    }
 
+    public void addNewUserListener(final FirebaseUser fbUser){
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+
+        database.child("users")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.hasChild(fbUser.getUid())){
+                    createUser(fbUser);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d(TAG, "database:onCancelled" + databaseError.getMessage());
+            }
+        });
+    }
+
+    public void createUser(FirebaseUser fbUser){
+        User user = new User(fbUser.getUid(), fbUser.getDisplayName(), fbUser.getEmail());
+        user.addUserToDatabase();
     }
 
     private void signIn() {
