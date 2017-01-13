@@ -30,3 +30,4 @@ This is a process book. It provides details of insights and steps taken during t
 # day 5
 * Presented app idea and design
 * I need to confirm if 3rd party calender can be accessed through google's API
+* currently looking into a way to check if a user logged in for the first time and working out the logic for what to do if that happens
