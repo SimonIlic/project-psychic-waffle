@@ -7,4 +7,5 @@
     <string name="signed_out">signed out</string>
     <string name="title_activity_create_group">CreateGroupActivity</string>
     <string name="add">Add</string>
+    <string name="delete">Delete</string>
 </resources>

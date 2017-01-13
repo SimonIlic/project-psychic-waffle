@@ -15,11 +15,19 @@ public class MeetingGroup {
     private String image;
 
     MeetingGroup(){
-        // Default constructor required for calls to DataSnapshot.getValue(MeetingGroup.class)
+        // default constructor required for calls to DataSnapshot.getValue(MeetingGroup.class)
+
+        // init arrayLists
+        members = new ArrayList<>();
+        emailAddresses = new ArrayList<>();
     }
 
     void addMember(String email){
         emailAddresses.add(email);
+    }
+
+    void removeMember(int index){
+        emailAddresses.remove(index);
     }
 
     public String getName() {
