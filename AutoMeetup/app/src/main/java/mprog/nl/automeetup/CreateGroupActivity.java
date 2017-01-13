@@ -6,9 +6,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
 
 public class CreateGroupActivity extends AppCompatActivity {
     private MeetingGroup group;
+    private ArrayAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +30,20 @@ public class CreateGroupActivity extends AppCompatActivity {
             }
         });
 
+        // init a new group
+        group = new MeetingGroup();
+
+        // startup listview
+        ListView memberListView = (ListView) findViewById(R.id.memberListView);
+        ArrayAdapter listAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, group.getEmailAddresses());
+        memberListView.setAdapter(listAdapter);
     }
 
     public void onAddButtonClick(View view) {
+        EditText emailET = (EditText) view;
+        group.addMember(emailET.getText().toString());
         
+        listAdapter.notifyDataSetChanged();
     }
 }
