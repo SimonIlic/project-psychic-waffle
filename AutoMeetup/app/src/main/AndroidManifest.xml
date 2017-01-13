@@ -21,6 +21,10 @@
         <activity
             android:name=".LoginActivity"
             android:label="Login" />
+        <activity
+            android:name=".CreateGroupActivity"
+            android:label="@string/title_activity_create_group"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -24,6 +24,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 /** Sign in activity.
@@ -71,14 +73,8 @@ public class LoginActivity extends AppCompatActivity implements
                 if (user != null) {
                     // User is signed in
                     updateUI(true);
-
-                    // add username to the shared pref list
-                    SharedPreferences sharedPref = getSharedPreferences(
-                            "mprog.simon.simonilic_pset6_sharedprefs", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("username", user.getDisplayName());
-                    editor.commit();
-
+                    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                    database.child("users").child(user.getUid()).once
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
