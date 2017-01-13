@@ -100,6 +100,7 @@ public class CreateGroupActivity extends AppCompatActivity {
         }
     }
 
+    /** delete an address from the group **/
     private void deleteEmail(int position) {
         group.removeMember(position);
         listAdapter.notifyDataSetChanged();
@@ -112,6 +113,7 @@ public class CreateGroupActivity extends AppCompatActivity {
                 Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
+    /** checks if a users email address is not allready added to the group **/
     public final boolean isDuplicateEmail(String target) {
         return group.getEmailAddresses().contains(target);
     }
