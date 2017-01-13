@@ -7,7 +7,7 @@ This is a process book. It provides details of insights and steps taken during t
 * proposed the project idea
 * looked into feasibility of the project
 ** so far this seems promising as playback seems to be allowed when a video is out of focus but still in view
-
+>
 # day 2
 * started process book
 * found other apps with similar functions:
