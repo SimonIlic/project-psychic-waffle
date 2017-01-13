@@ -2,7 +2,7 @@
 
 This is a process book. It provides details of insights and steps taken during the development of this project.
 
-> ### Note the first two days were spent on a rejected project proposal
+> ### Note: the first two days were spent on a rejected project proposal
 # day 1
 * proposed the project idea
 * looked into feasibility of the project
