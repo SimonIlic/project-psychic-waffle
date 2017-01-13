@@ -25,5 +25,8 @@ This is a process book. It provides details of insights and steps taken during t
 * started android studio project
 * integrated with firebase
 * created login activity
-* worked out database structure for groups
- >> I decided on having 2 trees one for groups and one for users, each user will have a list of group ids and each group will have a list of user ids
+* worked out database structure for groups. I decided on having 2 trees one for groups and one for users, each user will have a list of group ids and each group will have a list of user ids
+
+# day 5
+* Presented app idea and design
+* I need to confirm if 3rd party calender can be accessed through google's API
