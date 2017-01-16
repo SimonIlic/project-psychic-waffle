@@ -41,9 +41,10 @@ public class ConfigureGroupActivity extends AppCompatActivity {
         EditText groupNameET = (EditText) findViewById(R.id.groupNameET);
         group.setName(groupNameET.getText().toString());
 
+        // finalize group
         group.createId();
-
-
+        group.finalizeMembers();
+        group.addGroupToDatabase();
     }
 
     /** set up listview and adapter **/
