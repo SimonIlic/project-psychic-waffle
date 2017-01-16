@@ -2,11 +2,12 @@
 
 This is a process book. It provides details of insights and steps taken during the development of this project.
 
-> ### Note the first two days were spent on a rejected project proposal
+> ### Note: the first two days were spent on a rejected project proposal
 # day 1
 * proposed the project idea
 * looked into feasibility of the project
 ** so far this seems promising as playback seems to be allowed when a video is out of focus but still in view
+>
 # day 2
 * started process book
 * found other apps with similar functions:
@@ -18,3 +19,15 @@ This is a process book. It provides details of insights and steps taken during t
 
 # day 3
 * proposed the idea of an automatic meeting scheduler app
+* created design doc
+
+# day 4
+* started android studio project
+* integrated with firebase
+* created login activity
+* worked out database structure for groups. I decided on having 2 trees one for groups and one for users, each user will have a list of group ids and each group will have a list of user ids
+
+# day 5
+* Presented app idea and design
+* I need to confirm if 3rd party calender can be accessed through google's API
+* currently looking into a way to check if a user logged in for the first time and working out the logic for what to do if that happens
