@@ -1,5 +1,6 @@
 package mprog.nl.automeetup;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +18,7 @@ import android.widget.ListView;
 public class ViewGroupActivity extends AppCompatActivity {
     MeetingGroup group;
     ArrayAdapter listAdapter;
+    DatePickerDialog
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,10 @@ public class ViewGroupActivity extends AppCompatActivity {
         // get partially constructed group from previous activity
         Bundle inentBundle = getIntent().getExtras();
         group = (MeetingGroup) inentBundle.getSerializable("Group");
+
+        if (inentBundle.getBoolean("instantPlan", false)) {
+            // startup date/time selector dialog
+        }
 
         setupGroupInfoUI();
     }
