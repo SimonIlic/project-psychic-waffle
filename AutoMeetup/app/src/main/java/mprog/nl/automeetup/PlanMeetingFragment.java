@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 
 /**
+ * This fragment will prompt the user for a time period to plan a meeting in
+ * and the duration of the meeting
+ *
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * {@link PlanMeetingFragment.OnFragmentInteractionListener} interface
