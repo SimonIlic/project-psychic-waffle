@@ -1,7 +1,10 @@
 package mprog.nl.automeetup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -48,8 +51,25 @@ public class MeetingGroup implements java.io.Serializable {
         }
     }
 
+    /** Loop through all added emailadresses and add the uid's to the group and vice versa **/
     public void finalizeMembers(){
-        
+        for (int i = 0; i < emailAddresses.size(); i++){
+            String email = emailAddresses.get(i);
+
+            DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+            database.child("email_to_id").child(email.replaceAll("\\.", ",")).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    dataSnapshot.getValue()
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+            String uid =
+        }
     }
 
     void addGroupToDatabase(){
