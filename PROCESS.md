@@ -3,12 +3,12 @@
 This is a process book. It provides details of insights and steps taken during the development of this project.
 
 > ### Note: the first two days were spent on a rejected project proposal
-# day 1
+# day 1 9/1/17
 * proposed the project idea
 * looked into feasibility of the project
 ** so far this seems promising as playback seems to be allowed when a video is out of focus but still in view
 >
-# day 2
+# day 2 10/1/17
 * started process book
 * found other apps with similar functions:
 > * [Flytube](http://www.apkmirror.com/apk/flyperinc/flytube/flytube-1-01-rc4-release/flytube-1-01-rc4-android-apk-download/ "Flytube")
@@ -17,17 +17,21 @@ This is a process book. It provides details of insights and steps taken during t
 
 ### Start of project psychic waffle
 
-# day 3
+# day 3 11/1/17
 * proposed the idea of an automatic meeting scheduler app
 * created design doc
 
-# day 4
+# day 4 12/1/17
 * started android studio project
 * integrated with firebase
 * created login activity
 * worked out database structure for groups. I decided on having 2 trees one for groups and one for users, each user will have a list of group ids and each group will have a list of user ids
 
-# day 5
+# day 5 13/1/17
 * Presented app idea and design
 * I need to confirm if 3rd party calender can be accessed through google's API
 * currently looking into a way to check if a user logged in for the first time and working out the logic for what to do if that happens
+
+# day 6 16/1/17
+* Dear future me, please remember to fix signing out, so that a user can log in with a diffrent google account
+* Working on ConfigureGroupActivity, I find that a lot of functions are used that are also used in CreateGroupActivity but I do not know how to share them with this class

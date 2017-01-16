@@ -24,6 +24,10 @@
         <activity
             android:name=".CreateGroupActivity"
             android:label="@string/title_activity_create_group"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ConfigureGroupActivity"
+            android:label="@string/title_activity_configure_group"
             android:theme="@style/AppTheme"></activity>
     </application>
 

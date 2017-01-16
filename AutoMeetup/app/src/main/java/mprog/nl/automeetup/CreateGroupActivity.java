@@ -1,5 +1,6 @@
 package mprog.nl.automeetup;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,8 +32,10 @@ public class CreateGroupActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getBaseContext(), ConfigureGroupActivity.class);
+                intent.putExtra("Group", group);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -113,7 +116,7 @@ public class CreateGroupActivity extends AppCompatActivity {
                 Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
-    /** checks if a users email address is not allready added to the group **/
+    /** checks if a users email address is not already added to the group **/
     public final boolean isDuplicateEmail(String target) {
         return group.getEmailAddresses().contains(target);
     }

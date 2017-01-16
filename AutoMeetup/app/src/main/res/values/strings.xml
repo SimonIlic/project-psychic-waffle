@@ -8,4 +8,6 @@
     <string name="title_activity_create_group">CreateGroupActivity</string>
     <string name="add">Add</string>
     <string name="delete">Delete</string>
+    <string name="title_activity_configure_group">ConfigureGroupActivity</string>
+    <string name="group_name">Type the group subject here...</string>
 </resources>
