@@ -36,3 +36,4 @@ This is a process book. It provides details of insights and steps taken during t
 * Dear future me, please remember to fix signing out, so that a user can log in with a diffrent google account
 * Working on ConfigureGroupActivity, I find that a lot of functions are used that are also used in CreateGroupActivity but I do not know how to share them with this class
 * I still have to figure out the correct database rules
+* Decided to delete the databasehelper class as I felt it caused more trouble then it fixed
