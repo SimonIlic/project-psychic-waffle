@@ -5,20 +5,23 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
-public class ConfigureGroupActivity extends AppCompatActivity {
+public class ViewGroupActivity extends AppCompatActivity {
     MeetingGroup group;
     ArrayAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configure_group);
+        setContentView(R.layout.activity_view_group);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -26,7 +29,8 @@ public class ConfigureGroupActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finalizeGroup();
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
 
@@ -34,24 +38,15 @@ public class ConfigureGroupActivity extends AppCompatActivity {
         Bundle inentBundle = getIntent().getExtras();
         group = (MeetingGroup) inentBundle.getSerializable("Group");
 
-        setupListView();
+        setupGroupInfoUI();
     }
 
-    private void finalizeGroup() {
-        // validate group name
-        EditText groupNameET = (EditText) findViewById(R.id.groupNameET);
-        String groupName = groupNameET.getText().toString();
-        if (groupName.isEmpty()){
-            Toast.makeText(this, "Please provide a name for the meeting group",
-                    Toast.LENGTH_SHORT).show();
-            return;
-        }
+    /** set up title TV and group image TV etc **/
+    public void setupGroupInfoUI(){
+        EditText titleET = (EditText) findViewById(R.id.groupNameET);
+        titleET.setText(group.getName());
 
-        // finalize group
-        group.setName(groupName);
-        group.createId();
-        group.finalizeMembers();
-        group.addGroupToDatabase();
+        setupListView();
     }
 
     /** set up listview and adapter **/
@@ -65,5 +60,33 @@ public class ConfigureGroupActivity extends AppCompatActivity {
         // Register ListView for context menu, implicitly defining item longclick listener
         registerForContextMenu(memberListView);
     }
+
+    /** context menu for long clicks **/
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.context_menu, menu);
+    }
+
+    /** handle context menu logic **/
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch (item.getItemId()) {
+            case R.id.action_delete:
+                deleteMember(info.position);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    /** removes a member from a group **/
+    private void deleteMember(int position) {
+    }
+
 
 }
