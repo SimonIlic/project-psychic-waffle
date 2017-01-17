@@ -10,3 +10,6 @@ Creating a group will follow whatsapps group creation flow as this will be most 
 
 # Database structure
 A user database will be maintained in firebase. It will hold all usefull data about a user, e.g. name, emailadress, profilepicture, groups etc. Alongside that database a groups database will be maintained. This group database will hold a list of members of the group, the group name etc. Also in order to find users by emailadress a small table will be maintained mapping emailadresses to user id's.
+
+# Planning a meeting
+In order to plan a meeting user will link their google calender to the app. For now a copy of the users calender will be stored on the firebase server and retrieved whenever needed. Ideally I would like to use a server to link all calender live with the app, in order to keep all calender up to date. For now though a fresh copy of the calender will be upoloaded to firebase everytime a user opens the app.
