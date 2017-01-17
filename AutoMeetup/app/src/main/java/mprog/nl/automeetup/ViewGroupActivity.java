@@ -12,13 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 
 public class ViewGroupActivity extends AppCompatActivity {
     MeetingGroup group;
     ArrayAdapter listAdapter;
-    DatePickerDialog
+    DatePicker datepicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
