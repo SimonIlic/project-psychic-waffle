@@ -37,3 +37,7 @@ This is a process book. It provides details of insights and steps taken during t
 * Working on ConfigureGroupActivity, I find that a lot of functions are used that are also used in CreateGroupActivity but I do not know how to share them with this class
 * I still have to figure out the correct database rules
 * Decided to delete the databasehelper class as I felt it caused more trouble then it fixed
+
+# day 7 17/1/17
+* Today I will focus on implementing firebase side stuff
+* Looking into linking google calenders API with my project, ran into some trouble with SHA-1 certificate
