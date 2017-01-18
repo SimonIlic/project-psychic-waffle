@@ -42,3 +42,7 @@ This is a process book. It provides details of insights and steps taken during t
 * Today I will focus on implementing firebase side stuff
 * Looking into linking google calenders API with my project, ran into some trouble with SHA-1 certificate
 * this api request might be perfect: calendar.freebusy.query
+
+# day 8 18/1/17
+* WOOOOHOOO finally fixed SHA-1 certificate struggles
+* going to look into implementing calender api now
