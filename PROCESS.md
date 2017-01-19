@@ -49,3 +49,6 @@ This is a process book. It provides details of insights and steps taken during t
 
 # day 9 19/1/17
 * I think I will have o implement some sort of server in order for the calender api to work like I want to, need to check with staff if that is allowed
+* Looking into this: https://developers.google.com/identity/protocols/OAuth2ServiceAccount
+* Setting up a server that uses 3LO seems a bit too complicated for my skillset, currently looking into push notifications asking users to log in and update their calender info when a meeting is being planned
+
