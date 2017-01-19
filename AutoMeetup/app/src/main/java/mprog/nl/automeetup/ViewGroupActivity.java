@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class ViewGroupActivity extends AppCompatActivity {
     MeetingGroup group;
@@ -50,8 +50,8 @@ public class ViewGroupActivity extends AppCompatActivity {
 
     /** set up title TV and group image TV etc **/
     public void setupGroupInfoUI(){
-        EditText titleET = (EditText) findViewById(R.id.groupNameET);
-        titleET.setText(group.getName());
+        TextView titleTV = (TextView) findViewById(R.id.groupTitleTV);
+        titleTV.setText(group.getName());
 
         setupListView();
     }

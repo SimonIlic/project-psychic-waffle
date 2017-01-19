@@ -20,6 +20,7 @@
         android:id="@+id/groupTitleTV" />
 
     <ListView
+        android:id="@+id/memberListView"
         android:layout_below="@id/groupTitleTV"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
