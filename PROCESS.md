@@ -46,3 +46,6 @@ This is a process book. It provides details of insights and steps taken during t
 # day 8 18/1/17
 * WOOOOHOOO finally fixed SHA-1 certificate struggles
 * going to look into implementing calender api now
+
+# day 9 19/1/17
+* I think I will have o implement some sort of server in order for the calender api to work like I want to, need to check with staff if that is allowed
