@@ -1,6 +1,7 @@
 package mprog.nl.automeetup;
 
 import android.app.DatePickerDialog;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,7 +20,6 @@ import android.widget.TextView;
 public class ViewGroupActivity extends AppCompatActivity {
     MeetingGroup group;
     ArrayAdapter listAdapter;
-    DatePicker datepicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,8 @@ public class ViewGroupActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                DialogFragment newFragment = new DatePickerFragment();
+                newFragment.show(getFragmentManager(), "datePicker");
             }
         });
 
@@ -94,6 +94,4 @@ public class ViewGroupActivity extends AppCompatActivity {
     /** removes a member from a group **/
     private void deleteMember(int position) {
     }
-
-
 }
