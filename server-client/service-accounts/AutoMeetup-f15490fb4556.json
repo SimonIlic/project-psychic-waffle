@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "automeetup",
+  "private_key_id": "f15490fb455695ec5e9a35d3de232b3e1798bd86",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDEEL+AybngtobV\nBN3bkuj9rOoT4QblPDFrUXoruT7l2RRIMokre9hIQH00EmNVRYCUB1zjP2XIEn2w\nCBYgLlE7Dc4Aw6hiRq4hQfyrOqkfPYQ0bMu/Bf71lZeqQg6pY1Po2+XUPeBuv+PD\n8+6YQGPMZDaj3utQJE5+4xDvyzsR3fUMIVBMGkNx34d4fB2ZDtY+4949fIluE0ly\n820jznFsIJbhsEBAMVvhgZzID6N0iHBMXO1QJY9QfQJ2TbUjeHJ7ZvNu5ti2PH+T\n/lAvdYIDi3GUlTZOAE9xbg3JvPigjhPY9xsNh6KdchHM3BCvoO2trhRR5J9wwlF/\nNucQSbaNAgMBAAECggEAEoiOwarP8kjut+Ys3pulgI0+10A3OaYV+dIK3WU2Z928\nSBLW2pBrYnEOJMT0NNRMEjIb+rM8eMweq2woQ0R9kzp71aCpIxkRTr2BF+KEqBpV\ni+sY22bCsg5A9uwlnKdyABoBQK3UsENdUWGWlTfI90Il1Bm3Xqz/6oimSjSI0ehh\n6aR4/Z3TH6fetIEYVQTMbtcPRmXZEmFgjKsFYkyChorAIxFiiPhVxhEOOkptLSmc\nQuXVqd1mczgjMWEZO6CjBaahfjwyumjx5GO+0Pah2qGN/GmKDW1Ath0/TSpvmaCO\nLnQVyKIF8QSJFsziodY/ZY/a+1iqUAoK6GldqNnyYQKBgQDmGr3sW7oXhPKhICMn\nbiiF0h4mKzYBaWJE1aAdgHe+Lp9J3z/22m7AAXRfwRCD5b0mplxpkxhUDQPyZjD1\ntY5q/5lysZYk4f6N3NezqoSCrMq8LjlwEQsxf9Ulg6c2Ny19ajnvDTPCjdbSggdP\nn4JrXIrmjzMgVtgK1/OIKFEApQKBgQDaIVldKIA1ST4gjf5toSmcmWw/oqe/F+Nv\njuvVoy2B+vZs4KfXk9dnv94eBTFP7Galp7vPvr5KUjN/fdCFi9Z/ZJfb3RsbcZMZ\niaCMigFzp3DjGuvPNO2XIX48g/+pM5vaiJi28WrzkGR9LmbGKEHUw/clh13+2EdM\nNpqE9MxRyQKBgGMnAs/mdrnLwAFOJ9fF0BBaCkPIOu1Ay+d9ZhFQWkjJLjpWyOlG\nFpMGDW91cfhj9q3A4fFcQQ92zEyXXGGEamoQ2b5iZ6BdAaN/ljMFNzRX4MRV5soz\nje82dlJD+LmT7TYtn+kydytOk1MCVMQqp7g7mF7hNdaplU6W34m8VatBAoGBAK8l\nA+onMPqYOshM+zPvqcfR8PcPlX18ouPacEZz5YBukBtQL7SLQvRNPP4B0VyJRspQ\nah8e2xA1/J+r2BjC9ZIIpV6mpLNeeGyS81SlIxFIKv5PiXQw3WzyObhBjLDBfaz0\n7RpHskarc+SHs4H8pQ8/4lxB2xlbc7QgS+Xh4YTxAoGALY1rj6QFC6zSkeB6xhgR\ngMN5q7Oq5NuqdZ5E9CWOr6UdPMsx0B8BbkOvd4oyq3EKoLdOb9rVpGNozfzX/qQh\nPQIwNMj7OEuEij7gOutHFmW9Ni1khOUTWboI9RJ5h1NIUdICM+SLgTkQurI0HPlT\nrFgeicmlVnP+zEKTeGsfejA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "google-calender-manager@automeetup.iam.gserviceaccount.com",
+  "client_id": "108235375500523566387",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-calender-manager%40automeetup.iam.gserviceaccount.com"
+}
