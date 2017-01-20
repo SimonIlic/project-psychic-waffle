@@ -1,6 +1,7 @@
 package mprog.nl.automeetup;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,9 +14,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ViewGroupActivity extends AppCompatActivity {
     MeetingGroup group;
@@ -32,8 +35,7 @@ public class ViewGroupActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getFragmentManager(), "datePicker");
+                planNewMeeting();
             }
         });
 
@@ -42,7 +44,8 @@ public class ViewGroupActivity extends AppCompatActivity {
         group = (MeetingGroup) inentBundle.getSerializable("Group");
 
         if (inentBundle.getBoolean("instantPlan", false)) {
-            // startup date/time selector dialog
+            // startup date/time selector dialog immediately
+            planNewMeeting();
         }
 
         setupGroupInfoUI();
@@ -93,5 +96,22 @@ public class ViewGroupActivity extends AppCompatActivity {
 
     /** removes a member from a group **/
     private void deleteMember(int position) {
+    }
+
+    /** handles planning a new meeting **/
+    public void planNewMeeting(){
+        // get dialog
+        DialogFragment meetingPlannerDialogFragment = new PlanMeetingDialogFragment();
+        Dialog meetingPlannerDialog = meetingPlannerDialogFragment.getDialog();
+
+        // set up buttons
+        //Button startDateButton = (Button) meetingPlannerDialog.findViewById(R.id.periodStartButton);
+        //Button endDateButton = (Button) meetingPlannerDialog.findViewById(R.id.periodEndButton);
+
+        //startDateButton.setOnClickListener(this);
+        //endDateButton.setOnClickListener(this);
+
+        // show dialog
+        meetingPlannerDialogFragment.show(getFragmentManager(), "MeetingPlanner");
     }
 }

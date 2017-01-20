@@ -14,4 +14,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_meeting_duration">Select meeting duration</string>
+    <string name="select_period_end">Select period end</string>
+    <string name="select_period_start">Select period start</string>
 </resources>
