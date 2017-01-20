@@ -53,3 +53,6 @@ This is a process book. It provides details of insights and steps taken during t
 * Setting up a server that uses 3LO seems a bit too complicated for my skillset, currently looking into push notifications asking users to log in and update their calender info when a meeting is being planned
 * Found that firebase has a cloud messaging option (FCM), looking into that now
 
+# day 10 20/1/17
+* Building a client for firebase in python that will function as a notification system
+* Started asking around for test users
