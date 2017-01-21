@@ -57,3 +57,7 @@ This is a process book. It provides details of insights and steps taken during t
 * Building a client for firebase in python that will function as a notification system
 * Started asking around for test users
 * Working on date picker dialog now
+
+# day 11 21/1/17
+* working on meeting planner dialog
+* remember to fix rotationstuff (persisting the current state when rotating)
