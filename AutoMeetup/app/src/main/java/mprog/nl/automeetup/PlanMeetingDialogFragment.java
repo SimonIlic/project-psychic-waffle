@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 /** Plan meeting dialog fragment handles meeting request
@@ -24,11 +25,9 @@ public class PlanMeetingDialogFragment extends DialogFragment implements View.On
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View layoutView = inflater.inflate(R.layout.plan_meeting_dialog_layout, null);
 
-        // set button onClickListeners
-        Button startDateButton = (Button) layoutView.findViewById(R.id.periodStartButton);
-        Button endDateButton = (Button) layoutView.findViewById(R.id.periodEndButton);
-        startDateButton.setOnClickListener(this);
-        endDateButton.setOnClickListener(this);
+        //
+        setButtonOnClickListeners(layoutView);
+        configureNumberPicker(layoutView);
 
         builder.setTitle("Plan Meeting")
                 .setView(layoutView)
@@ -46,13 +45,41 @@ public class PlanMeetingDialogFragment extends DialogFragment implements View.On
         return builder.create();
     }
 
+    /** configure the number picker for meeting duration **/
+    private void configureNumberPicker(View layoutView) {
+        NumberPicker np = (NumberPicker) layoutView.findViewById(R.id.numberPicker);
+        String[] nums = new String[18];
+        for(int i = 2; i - 2 < nums.length; i++) {
+            nums[i - 2] = Integer.toString(i * 10);
+        }
+
+        np.setMinValue(Integer.valueOf(nums[0]));
+        np.setMaxValue(Integer.valueOf(nums[nums.length - 1]));
+        np.setWrapSelectorWheel(false);
+        np.setDisplayedValues(nums);
+        np.setValue(1);
+    }
+
+    /** Sets the onClickListeners for the buttons in the dialog to **/
+    private void setButtonOnClickListeners(View layoutView) {
+        Button startDateButton = (Button) layoutView.findViewById(R.id.periodStartButton);
+        Button endDateButton = (Button) layoutView.findViewById(R.id.periodEndButton);
+        startDateButton.setOnClickListener(this);
+        endDateButton.setOnClickListener(this);
+    }
+
+    /** On click functions for this dialog **/
     @Override
     public void onClick(View v) {
         if (R.id.periodStartButton == v.getId()) {
             Toast.makeText(getActivity(), "Clicked start button", Toast.LENGTH_SHORT).show();
+            DialogFragment meetingPlannerDialogFragment = new DatePickerFragment();
+            meetingPlannerDialogFragment.show(getFragmentManager(), "DatePicker");
         }
         else if (R.id.periodEndButton == v.getId()) {
             Toast.makeText(getActivity(), "CLicked end button", Toast.LENGTH_SHORT).show();
+            DialogFragment meetingPlannerDialogFragment = new DatePickerFragment();
+            meetingPlannerDialogFragment.show(getFragmentManager(), "DatePicker");
         }
 
     }

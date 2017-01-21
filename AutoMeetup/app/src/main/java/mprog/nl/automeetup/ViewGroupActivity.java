@@ -1,11 +1,9 @@
 package mprog.nl.automeetup;
 
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -14,11 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ViewGroupActivity extends AppCompatActivity {
     MeetingGroup group;
@@ -102,7 +97,6 @@ public class ViewGroupActivity extends AppCompatActivity {
     public void planNewMeeting(){
         // get dialog
         DialogFragment meetingPlannerDialogFragment = new PlanMeetingDialogFragment();
-        Dialog meetingPlannerDialog = meetingPlannerDialogFragment.getDialog();
 
         // set up buttons
         //Button startDateButton = (Button) meetingPlannerDialog.findViewById(R.id.periodStartButton);
