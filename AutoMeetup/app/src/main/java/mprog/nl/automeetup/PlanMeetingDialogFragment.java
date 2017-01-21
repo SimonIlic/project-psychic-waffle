@@ -53,11 +53,11 @@ public class PlanMeetingDialogFragment extends DialogFragment implements View.On
             nums[i - 2] = Integer.toString(i * 10);
         }
 
-        np.setMinValue(Integer.valueOf(nums[0]));
-        np.setMaxValue(Integer.valueOf(nums[nums.length - 1]));
+        np.setMinValue(0);
+        np.setMaxValue(nums.length - 1);
         np.setWrapSelectorWheel(false);
         np.setDisplayedValues(nums);
-        np.setValue(1);
+        np.setValue(3);
     }
 
     /** Sets the onClickListeners for the buttons in the dialog to **/
