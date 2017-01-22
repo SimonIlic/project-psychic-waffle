@@ -16,6 +16,7 @@ public class Meeting {
     private Date meetingDate;
     private int meetingDuration;
     private String groupID;
+    private String meetingID;
 
 
     public Meeting() {
@@ -30,7 +31,7 @@ public class Meeting {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
         // add meeting object to request database so the python client can handle notifications
-        String meetingID = database.child("requests").push().getKey();
+        meetingID = database.child("requests").push().getKey();
         database.child("requests").child(meetingID).setValue(this);
 
         // add meeting to the groups meeting list
@@ -75,5 +76,13 @@ public class Meeting {
 
     public void setGroupID(String groupID) {
         this.groupID = groupID;
+    }
+
+    public String getMeetingID() {
+        return meetingID;
+    }
+
+    public void setMeetingID(String meetingID) {
+        this.meetingID = meetingID;
     }
 }
