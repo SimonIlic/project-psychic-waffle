@@ -1,11 +1,16 @@
-#! python3
-
 import pyrebase
+from pyfcm import FCMNotification
 
 import os
 
+# load in API keys
+with open('API_keys/db_key.key', 'r') as key_file:
+    db_key = key_file.read().replace('\n', '')
+with open('API_keys/fcm_key.key', 'r') as key_file:
+    fcm_key = key_file.read().replace('\n', '')
+
 config = {
-  "apiKey": "AIzaSyDqzSSZhlYov3BIxMPCT5l2NrMJYjjPwfo",
+  "apiKey": db_key,
   "authDomain": "automeetup.firebaseapp.com",
   "databaseURL": "https://automeetup.firebaseio.com",
   "storageBucket": "automeetup.appspot.com",
@@ -13,6 +18,19 @@ config = {
 }
 
 firebase = pyrebase.initialize_app(config)
+push_service = FCMNotification(api_key=fcm_key)
 
-# get a database listener
+def handle_new_meeting_request(fb_db_message):
+    print("INCOMING DATA!!!")
+    print(fb_db_message)
+
+# get a database reference
 db = firebase.database()
+
+# set up database listeners
+meeting_request_stream = db.child("requests").stream(handle_new_meeting_request)
+
+# test notification
+result = push_service.notify_single_device(registration_id="eyMYMInhoio:APA91bEGoYIbgcXFEZrLB5yBEQb1H_DsyeSmnmJBzVf2Ad5O_3tXjatOm_tjRKlflZE0V0B6Q7x0wMaEob8ohl3dE5HpOi8SW0lFS2lXwWCb5T8H_Kt2cgJXaZEkzjgPBAvrCuiWc2q_", message_title="test notification", message_body="hello this is a test")
+
+print(result)
