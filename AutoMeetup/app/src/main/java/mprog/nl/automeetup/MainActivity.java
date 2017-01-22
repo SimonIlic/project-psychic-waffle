@@ -10,15 +10,31 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 
-public class MainActivity extends AppCompatActivity {
+import java.security.acl.Group;
+import java.util.ArrayList;
 
+public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
+
+    DatabaseReference database;
+
+    ArrayList<MeetingGroup> groups = new ArrayList<>();
+    GroupListAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +57,54 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        setupAuth();
+        setupListView();
+        getGroupsFromDatabase();
+    }
+
+    private void getGroupsFromDatabase() {
+        database = FirebaseDatabase.getInstance().getReference();
+        database.child("users").child(firebaseUser.getUid()).child("groups").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Log.e("TEST", "TEST");
+                Log.d("DB return", dataSnapshot.toString());
+                database.child("groups").child(dataSnapshot.getKey()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        groups.add(dataSnapshot.getValue(MeetingGroup.class));
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void setupAuth(){
         // get auth info
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
@@ -51,7 +115,17 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
 
+    /** set up listview and adapter **/
+    public void setupListView(){
+        // startup listview
+        ListView groupsListView = (ListView) findViewById(R.id.groupListView);
+        listAdapter = new GroupListAdapter(this, 0, groups);
+        groupsListView.setAdapter(listAdapter);
+
+        // Register ListView for context menu, implicitly defining item longclick listener
+        //TODO registerForContextMenu(memberListView);
     }
 
     @Override
