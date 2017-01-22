@@ -62,3 +62,5 @@ This is a process book. It provides details of insights and steps taken during t
 * working on meeting planner dialog
 * remember to fix rotationstuff (persisting the current state when rotating)
 * Added firebase crash reporting to the project, so I can recieve crash reports from test users
+* A meeting can now be plannen from the ViewGroupActivity. For right now a meetingrequest is send to firebase which gets picked up by the python client, which will send out notifications to the effected users.
+* <3 Python (everything works so great :D)
