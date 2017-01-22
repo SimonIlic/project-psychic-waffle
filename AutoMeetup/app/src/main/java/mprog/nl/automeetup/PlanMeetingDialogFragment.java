@@ -25,11 +25,18 @@ public class PlanMeetingDialogFragment extends DialogFragment implements View.On
     private Meeting meeting;
     private NumberPicker numberPicker;
     String[] nums;
+    public String groupID;
+
+    public static PlanMeetingDialogFragment newInstance(String groupID) {
+        PlanMeetingDialogFragment fragment = new PlanMeetingDialogFragment();
+        fragment.groupID = groupID;
+        return fragment;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // generate meeting object
-        meeting = new Meeting();
+        meeting = new Meeting(groupID);
 
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -47,6 +54,8 @@ public class PlanMeetingDialogFragment extends DialogFragment implements View.On
                     public void onClick(DialogInterface dialog, int id) {
                         // set the selected meeting duration
                         meeting.setMeetingDuration(Integer.valueOf(nums[numberPicker.getValue()]));
+                        // finalize meeting request
+                        meeting.requestMeeting();
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -70,7 +79,7 @@ public class PlanMeetingDialogFragment extends DialogFragment implements View.On
         numberPicker.setMaxValue(nums.length - 1);
         numberPicker.setWrapSelectorWheel(false);
         numberPicker.setDisplayedValues(nums);
-        numberPicker.setValue(3);
+        numberPicker.setValue(4);
     }
 
     /** Sets the onClickListeners for the buttons in the dialog to **/

@@ -96,7 +96,7 @@ public class ViewGroupActivity extends AppCompatActivity {
     /** handles planning a new meeting **/
     public void planNewMeeting(){
         // get dialog
-        DialogFragment meetingPlannerDialogFragment = new PlanMeetingDialogFragment();
+        DialogFragment meetingPlannerDialogFragment = PlanMeetingDialogFragment.newInstance(group.getId());
 
         // set up buttons
         //Button startDateButton = (Button) meetingPlannerDialog.findViewById(R.id.periodStartButton);

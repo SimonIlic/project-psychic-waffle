@@ -1,5 +1,8 @@
 package mprog.nl.automeetup;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Date;
 
 /** The meeting class holds all info about a meeting
@@ -12,10 +15,26 @@ public class Meeting {
     private Date endDate;
     private Date meetingDate;
     private int meetingDuration;
+    private String groupID;
 
 
     public Meeting() {
-        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+        // Default constructor required for calls to DataSnapshot.getValue(Meeting.class)
+    }
+
+    public Meeting(String groupID){
+        setGroupID(groupID);
+    }
+
+    public void requestMeeting(){
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+
+        // add meeting object to request database so the python client can handle notifications
+        String meetingID = database.child("requests").push().getKey();
+        database.child("requests").child(meetingID).setValue(this);
+
+        // add meeting to the groups meeting list
+        database.child("groups").child(groupID).child("meetings").child(meetingID).setValue(this);
     }
 
     public Date getStartDate() {
@@ -48,5 +67,13 @@ public class Meeting {
 
     public void setMeetingDuration(int meetingDuration) {
         this.meetingDuration = meetingDuration;
+    }
+
+    public String getGroupID() {
+        return groupID;
+    }
+
+    public void setGroupID(String groupID) {
+        this.groupID = groupID;
     }
 }
