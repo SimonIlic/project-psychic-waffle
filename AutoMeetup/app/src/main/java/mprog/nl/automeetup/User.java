@@ -10,7 +10,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by Simon on 12-1-2017.
  */
 
-public class User {
+public class User implements java.io.Serializable {
     private String id;
     private String fullName;
     private String email;

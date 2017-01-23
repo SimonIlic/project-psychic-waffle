@@ -10,7 +10,7 @@ import java.util.Date;
  * Created by Simon on 21-1-2017.
  */
 
-public class Meeting {
+public class Meeting implements java.io.Serializable {
     private Date startDate;
     private Date endDate;
     private Date meetingDate;

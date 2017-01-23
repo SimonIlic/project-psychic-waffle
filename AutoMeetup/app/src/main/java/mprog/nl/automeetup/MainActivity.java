@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -67,12 +68,11 @@ public class MainActivity extends AppCompatActivity {
         database.child("users").child(firebaseUser.getUid()).child("groups").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Log.e("TEST", "TEST");
-                Log.d("DB return", dataSnapshot.toString());
                 database.child("groups").child(dataSnapshot.getKey()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         groups.add(dataSnapshot.getValue(MeetingGroup.class));
+                        listAdapter.notifyDataSetChanged();
                     }
 
                     @Override
@@ -123,6 +123,16 @@ public class MainActivity extends AppCompatActivity {
         ListView groupsListView = (ListView) findViewById(R.id.groupListView);
         listAdapter = new GroupListAdapter(this, 0, groups);
         groupsListView.setAdapter(listAdapter);
+
+        groupsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                MeetingGroup group = groups.get(position);
+                Intent intent = new Intent(getBaseContext(), ViewGroupActivity.class);
+                intent.putExtra("Group", group);
+                startActivity(intent);
+            }
+        });
 
         // Register ListView for context menu, implicitly defining item longclick listener
         //TODO registerForContextMenu(memberListView);

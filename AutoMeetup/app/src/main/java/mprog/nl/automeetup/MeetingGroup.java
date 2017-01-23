@@ -9,9 +9,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
- * This
+ * This is a MeetingGroup object. It stores all information about a group.
  *
  * Created by Simon on 12-1-2017.
  */
@@ -19,16 +20,16 @@ import java.util.ArrayList;
 public class MeetingGroup implements java.io.Serializable {
     private String name;
     private String id;
-    private ArrayList<String> members;
-    private ArrayList<String> emailAddresses;
+    private HashMap<String, Boolean> members = new HashMap<>();
+    private ArrayList<String> emailAddresses = new ArrayList<>();
     private String image;
 
     MeetingGroup(){
         // default constructor required for calls to DataSnapshot.getValue(MeetingGroup.class)
 
         // init arrayLists
-        members = new ArrayList<>();
-        emailAddresses = new ArrayList<>();
+        //members = new ArrayList<>();
+        //emailAddresses = new ArrayList<>();
     }
 
     void addMember(String email){
@@ -65,7 +66,7 @@ public class MeetingGroup implements java.io.Serializable {
 
     /** Adds a user id to the members list and the group id to the user's group list **/
     public void addUid(String uid){
-        members.add(uid);
+        members.put(uid, true);
         // add group id to users group list
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         database.child("users").child(uid).child("groups").child(id).setValue(true);
@@ -103,12 +104,16 @@ public class MeetingGroup implements java.io.Serializable {
         this.name = name;
     }
 
-    public ArrayList<String> getMembers() {
+    public HashMap<String, Boolean> getMembers() {
         return members;
     }
 
-    public void setMembers(ArrayList<String> members) {
+    public void setMembers(HashMap<String, Boolean> members) {
         this.members = members;
+    }
+
+    public void setEmailAddresses(ArrayList<String> emailAddresses) {
+        this.emailAddresses = emailAddresses;
     }
 
     public ArrayList<String> getEmailAddresses() {
