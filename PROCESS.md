@@ -64,3 +64,7 @@ This is a process book. It provides details of insights and steps taken during t
 * Added firebase crash reporting to the project, so I can recieve crash reports from test users
 * A meeting can now be plannen from the ViewGroupActivity. For right now a meetingrequest is send to firebase which gets picked up by the python client, which will send out notifications to the effected users.
 * <3 Python (everything works so great :D)
+
+# day 13 23/1/17
+* MainActivty now displays the groups a user is in, when clicked it opens the coresponding GroupViewActivity
+* Going to work on handling calender requests now
