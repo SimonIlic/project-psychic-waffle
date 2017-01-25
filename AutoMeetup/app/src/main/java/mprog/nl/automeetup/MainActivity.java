@@ -59,12 +59,47 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setupAuth();
+        database = FirebaseDatabase.getInstance().getReference();
+
         setupListView();
         getGroupsFromDatabase();
+        listenForRequests();
+    }
+
+    private void listenForRequests() {
+        database.child("users").child(firebaseUser.getUid()).child("requests").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                handleNewCalenderRequest(dataSnapshot);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void handleNewCalenderRequest(DataSnapshot dataSnapshot) {
+        Meeting meeting = dataSnapshot.getValue(Meeting.class);
     }
 
     private void getGroupsFromDatabase() {
-        database = FirebaseDatabase.getInstance().getReference();
         database.child("users").child(firebaseUser.getUid()).child("groups").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
