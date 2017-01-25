@@ -1,3 +1,5 @@
+package mprog.nl.automeetup;
+
 import android.os.AsyncTask;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -17,11 +19,11 @@ import java.util.List;
  * An asynchronous task that handles the Google Calendar API call.
  * Placing the API calls in their own task ensures the UI stays responsive.
  */
-private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
+public class UploadFreeBusyAsyncTask extends AsyncTask<Void, Void, List<String>> {
     private com.google.api.services.calendar.Calendar mService = null;
     private Exception mLastError = null;
 
-    MakeRequestTask(GoogleAccountCredential credential) {
+    UploadFreeBusyAsyncTask(GoogleAccountCredential credential) {
         HttpTransport transport = AndroidHttp.newCompatibleTransport();
         JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
         mService = new com.google.api.services.calendar.Calendar.Builder(
@@ -83,16 +85,18 @@ private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
 
     @Override
     protected void onPostExecute(List<String> output) {
-        mProgress.hide();
+        //TODO
+        /*mProgress.hide();
         if (output == null || output.size() == 0) {
         } else {
             output.add(0, "Data retrieved using the Google Calendar API:");
-        }
+        }*/
     }
 
     @Override
     protected void onCancelled() {
-        mProgress.hide();
+        //TODO
+        /*mProgress.hide();
         if (mLastError != null) {
             if (mLastError instanceof GooglePlayServicesAvailabilityIOException) {
                 showGooglePlayServicesAvailabilityErrorDialog(
@@ -108,6 +112,6 @@ private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
             }
         } else {
             mOutputText.setText("Request cancelled.");
-        }
+        }*/
     }
 }

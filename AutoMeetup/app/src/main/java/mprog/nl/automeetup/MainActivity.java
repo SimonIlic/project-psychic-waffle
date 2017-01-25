@@ -15,6 +15,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.util.ExponentialBackOff;
+import com.google.api.services.calendar.CalendarScopes;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -27,6 +30,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.security.acl.Group;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
@@ -36,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<MeetingGroup> groups = new ArrayList<>();
     GroupListAdapter listAdapter;
+
+    private static final String[] SCOPES = {CalendarScopes.CALENDAR_READONLY,
+            CalendarScopes.CALENDAR};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleNewCalenderRequest(DataSnapshot dataSnapshot) {
         Meeting meeting = dataSnapshot.getValue(Meeting.class);
+        // Initialize credentials and service object.
+        GoogleAccountCredential credential = GoogleAccountCredential.usingOAuth2(
+                getApplicationContext(), Arrays.asList(SCOPES))
+                .setBackOff(new ExponentialBackOff());
+
+        
     }
 
     private void getGroupsFromDatabase() {
