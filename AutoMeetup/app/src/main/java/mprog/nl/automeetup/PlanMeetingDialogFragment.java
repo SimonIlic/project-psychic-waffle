@@ -56,9 +56,6 @@ public class PlanMeetingDialogFragment extends DialogFragment implements View.On
                         meeting.setMeetingDuration(Integer.valueOf(nums[numberPicker.getValue()]));
                         // finalize meeting request
                         meeting.requestMeeting();
-
-                        UploadFreeBusyAsyncTask asyncTask = new UploadFreeBusyAsyncTask();
-                        asyncTask.execute(meeting);
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

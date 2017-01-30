@@ -68,3 +68,16 @@ This is a process book. It provides details of insights and steps taken during t
 # day 13 23/1/17
 * MainActivty now displays the groups a user is in, when clicked it opens the coresponding GroupViewActivity
 * Going to work on handling calender requests now
+
+# day 14 24/1/17
+* failed misserably
+
+# day 15 25/1/17
+* Might have fixed API auth stuff
+
+# day 16 26/1/17
+* Sick day
+
+# day 17 30/1/17
+* Carlijn helped me out tremendously, I think I can sill get this done now
+* I will use carlijns token activity in order to get proper authentication with the google calender API

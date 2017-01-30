@@ -1,6 +1,7 @@
 package mprog.nl.automeetup;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
@@ -86,6 +87,7 @@ public class UploadFreeBusyAsyncTask extends AsyncTask<Void, Void, List<String>>
     @Override
     protected void onPostExecute(List<String> output) {
         //TODO
+        Log.d("OUTPUT", output.toString());
         /*mProgress.hide();
         if (output == null || output.size() == 0) {
         } else {
@@ -95,6 +97,7 @@ public class UploadFreeBusyAsyncTask extends AsyncTask<Void, Void, List<String>>
 
     @Override
     protected void onCancelled() {
+        Log.d("FAILED ASYNC", mLastError.toString());
         //TODO
         /*mProgress.hide();
         if (mLastError != null) {

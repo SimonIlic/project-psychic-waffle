@@ -65,7 +65,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        setupAuth();
+        // check auth state
+        if (!isLoggedIn()){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
         database = FirebaseDatabase.getInstance().getReference();
 
         setupListView();
@@ -109,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
                 getApplicationContext(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff());
 
-        
+        UploadFreeBusyAsyncTask asyncTask = new UploadFreeBusyAsyncTask(credential);
+        asyncTask.execute();
     }
 
     private void getGroupsFromDatabase() {
@@ -152,17 +159,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setupAuth(){
+    private boolean isLoggedIn(){
         // get auth info
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
-        // launch login if not logged in
+        // return appropriate boolean
         if (firebaseUser == null) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-            finish();
+            return false;
         }
+
+        return true;
     }
 
     /** set up listview and adapter **/
